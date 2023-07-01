@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Heart Risk Predictor</title>
+        <link rel="shortcut icon" href="{{url_for('static', filename='logo.png')}}" type="image/png">
+
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
+    </head>
+    <body style="padding-top: 50px;">
+
+      <!--Header-->
+        <header>
+            <nav class="navbar navbar-dark navbar-fixed-top" style="background-color:#007C9D">
+             <div class="container">
+                 <div class="navbar-header">
+                     <button type="button" class="navbar-toggle custom-border" data-toggle="collapse" data-target="#myNavbar">
+                         <span class="icon-bar custom-toggler" ></span>
+                         <span class="icon-bar custom-toggler"></span>
+                         <span class="icon-bar custom-toggler"></span>
+                     </button>
+                     <a class="navbar-brand" href="{{url_for('index')}}"> <span class="glyphicon glyphicon-heart" style="color:#ab2925"></span>&nbsp;Heart Risk Predictor</a>
+                 </div>
+                 <div class="collapse navbar-collapse" id="myNavbar">
+                     <ul class="nav navbar-nav navbar-right">
+                             <li><a href="{{url_for('index')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                             <li><a href="{{url_for('project_detail')}}"><span class="glyphicon glyphicon-book"></span> Project Details</a></li>
+                             <li><a href="{{url_for('about_us')}}"><span class="glyphicon glyphicon-th-list"></span> About Us</a></li>
+                             <li><a href="{{url_for('contact_us')}}"><span class="glyphicon glyphicon-phone"></span> Contact Us</a></li>
+                     </ul>
+                 </div>
+             </div>
+         </nav>
+         </header>
+        <!--Header end-->
+
+        <!--main-->
+        <div id="content">
+            <!--Main banner image-->
+            <div id = "form_banner_image">
+                <div class="container-fluid">
+                    <center>
+                        <div id="form_banner_content">
+                            <!--form-->
+                            <div class="full-form">
+                                <div class="form-heading"><h3>Please fill your details</h3></div>
+                                <form  action="{{url_for('result')}}" method="POST" class="form-left">
+
+                                    <div class="form-group col-sm-12">
+                                        <label>Name:</label>
+                                        <input type="text" class="form-control"  name="name" placeholder="Enter your full name" required>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <p>Gender:</p>
+                                        <div style="display: inline-block; margin-right: 5px;">
+                                        <input type="radio" id="male" name="gender" value="1" required>
+                                        <label for="male">Male</label>
+                                      </div>
+                                      <div style="display: inline-block;">
+                                        <input type="radio" id="female" name="gender" value="2" required>
+                                        <label for="female">Female</label>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <label>Age:</label>
+                                        <input type="text" class="form-control"  name="age" placeholder="Enter your age" required>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <label>Total Cholesterol(mg/dl):</label>
+                                        <input type="text" class="form-control"  name="tc" placeholder="Enter your total cholesterol in mg/dl" required>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <label>High-Density Lipoprotein(mg/dl):</label>
+                                        <input type="text" class="form-control"  name="hdl" placeholder="Enter your high-density lipoprotein in mg/dl" required>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <label>Systolic Blood Pressure(mm):</label>
+                                        <input type="text" class="form-control"  name="sbp" placeholder="Enter your systolic blood pressure in mm" required>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <p>Do you smoke?</p>
+                                        <input type="radio" id="yes_s" name="smoke" value="1" required>
+                                        <label for="yes_s">Yes</label>
+                                        <input type="radio" id="no_s" name="smoke" value="0" required>
+                                        <label for="no_s">No</label><br>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <p>Do you take any medication for blood pressure?</p>
+                                        <input type="radio" id="yes_bpm" name="bpm" value="2" required>
+                                        <label for="yes_bpm">Yes</label>
+                                        <input type="radio" id="no_bpm" name="bpm" value="1" required>
+                                        <label for="no_bpm">No</label><br>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        <p>Are you diabetic type-1?</p>
+                                        <input type="radio" id="yes_dto" name="diab" value="1" required>
+                                        <label for="yes_dto">Yes</label>
+                                        <input type="radio" id="no_dto" name="diab" value="0" required>
+                                        <label for="no_dto">No</label><br>
+                                    </div>
+
+
+                                    <div style="display: inline-block; margin-right: 5px;">
+                                        <button type="submit" name="submit" class="btn btn-success btn-md">Submit</button>
+                                    </div>
+                                    <div style="display: inline-block;">
+                                        <button type="reset" name="reset" class="btn btn-danger btn-md">Reset</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!--form-->
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!--Main banner image end-->
+        </div>
+        <!--main-->
+
+        <!--Footer-->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 caption" style="text-align:center ; margin: 1%; padding: 1%">
+                        <p style="display:inline">Heart-Risk-Predictor &copy;2023 All Rights Reserved.</p>
+                        <a class="link" href="{{url_for('about_us')}}">&nbsp;Made by Prashant, Shefa, Sweety & Sumit</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--Footer end-->
+
+
+    </body>
+</html>

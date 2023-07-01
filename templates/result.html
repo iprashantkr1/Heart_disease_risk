@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Heart Risk Predictor</title>
+        <link rel="shortcut icon" href="{{url_for('static', filename='logo.png')}}" type="image/png">
+
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
+    </head>
+    <body style="padding-top: 50px;">
+
+      <!--Header-->
+        <header>
+            <nav class="navbar navbar-dark navbar-fixed-top" style="background-color:#000000">
+             <div class="container">
+                 <div class="navbar-header">
+                     <button type="button" class="navbar-toggle custom-border" data-toggle="collapse" data-target="#myNavbar">
+                         <span class="icon-bar custom-toggler" ></span>
+                         <span class="icon-bar custom-toggler"></span>
+                         <span class="icon-bar custom-toggler"></span>
+                     </button>
+                     <a class="navbar-brand" href="{{url_for('index')}}"> <span class="glyphicon glyphicon-heart" style="color:#ab2925"></span>&nbsp;Heart Risk Predictor</a>
+                 </div>
+                 <div class="collapse navbar-collapse" id="myNavbar">
+                     <ul class="nav navbar-nav navbar-right">
+                             <li><a href="{{url_for('index')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                             <li><a href="{{url_for('project_detail')}}"><span class="glyphicon glyphicon-book"></span> Project Details</a></li>
+                             <li><a href="{{url_for('about_us')}}"><span class="glyphicon glyphicon-th-list"></span> About Us</a></li>
+                             <li><a href="{{url_for('contact_us')}}"><span class="glyphicon glyphicon-phone"></span> Contact Us</a></li>
+                     </ul>
+                 </div>
+             </div>
+         </nav>
+         </header>
+        <!--Header end-->
+
+        <!--main-->
+        <div id="content">
+            <!--Main banner image-->
+            <div id = "table_banner_image">
+                <div class="container-fluid">
+                    <center>
+                        <div id="table_banner_content">
+                            <div><h1>{{results.name}}'s Report</h1></div>
+
+                            <div>
+                                <h3>Risk Calculated</h3>
+                                <div>
+                                    <div class="risk highlight">{{results.risk}} % </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <!-- table1 -->
+                            <table class="table table-main-1 table-responsive">
+                                <thead>
+                                <tr>
+                                    <th class="tb">Test name</th>
+                                    <th class="tb">Value</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="tb">Cholesterol</td>
+                                    <td class="tb">{{results.tc}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="tb">Hdl</td>
+                                    <td class="tb">{{results.hdl}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="tb">Sbp</td>
+                                    <td class="tb">{{results.sbp}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- table1 end -->
+                            <div style="margin:10px">
+                            <a  href="{{url_for('patient_detail')}}" class="btn btn-danger btn-lg">Re-Calculate</a>
+                            </div>
+
+                            <!-- table2 -->
+
+                            <div><h4>Normal human range for your reference</h4></div>
+                            <div class="table-responsive">
+                            <table class=" table table-main-2 ">
+                                <thead>
+                                    <tr>
+                                    <th class="tb">Test name</th>
+                                    <th class="tb">Age</th>
+                                    <th class="tb">Gender</th>
+                                    <th class="tb">Refrence range</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="tb">Cholesterol</td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>19 or younger</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20 or older</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20 or older</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>Male & Female</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Female</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>170 mg/dL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>125-200 mg/dL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>125-200 mg/dL</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="tb">Hdl</td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>19 or younger</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20 or older</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20 or older</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>Male & Female</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Female</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>Greater than 45 mg/dL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Greater than 40 mg/dL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Greater than 50 mg/dL</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tb">Sbp</td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>19 or younger</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20 or older</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20 or older</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>Male & Female</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Female</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="tb">
+                                            <table>
+                                                <tr>
+                                                    <td>Less than 105 mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Less than 130 mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Less than 120 mm</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+
+                            <!-- table2 end -->
+
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!--Main banner image end-->
+        </div>
+        <!--main-->
+
+        <!--Footer-->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 caption" style="text-align:center ; margin: 1%; padding: 1%">
+                        <p style="display:inline">Heart-Risk-Predictor &copy;2022 All Rights Reserved.</p>
+                        <a class="link" href="{{url_for('about_us')}}">&nbsp;Made by Prashant, Shefa, Sweety & Sumit</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--Footer end-->
+
+    </body>
+</html>
